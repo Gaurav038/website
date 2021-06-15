@@ -1,0 +1,695 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* making font color smoother */
+body{
+    -webkit-font-smoothing:antialiased;
+    font-family: "railway-regular";
+}
+/* FONTS */
+@font-face {
+    font-family: "railway-regular";
+    src: url(../fonts/Raleway-Regular.ttf);
+}
+@font-face {
+    font-family: "railway-Bitalic";
+    src: url(../fonts/Raleway-BlackItalic.ttf);
+}
+@font-face {
+    font-family: "railway-black";
+    src: url(../fonts/Raleway-Black.ttf);
+}
+@font-face {
+    font-family: "railway-Ebold";
+    src: url(../fonts/Raleway-ExtraBold.ttf);
+}
+@font-face {
+    font-family: "railway-Elight";
+    src: url(../fonts/Raleway-ExtraLight.ttf);
+}
+/* COLORS */
+:root {
+   --primary:#EEBF00;
+   --secondary:#232B38;
+   --ternary:#6C6C6C;
+   --danger:#FE4545;
+   --pure:#FEFEFE;
+   --light:#F0F0F0;
+   --heaven:#FFFFFF;
+   --footer:#2D333F;
+}
+
+.container{
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+/* --------------some utiulity--------------------- */
+.text-pure{
+    color: var(--pure);
+}
+.flex{
+    display: flex;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.items-center{
+    align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+.text-center{
+    text-align: center;
+}
+.magic-shadow{
+    position: relative;
+    background: var(--heaven);
+}
+.magic-shadow:after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 69px;
+    background-image: url(../icons/shadow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: -23px;
+    z-index: -1;
+}
+
+.btn{
+    padding: .75rem .75rem;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;/*----to resolve a minute issue--*/
+}
+.btn-primary{
+    background: var(--primary);
+    color: var(--heaven);
+}
+.btn-primary:hover{
+    background: var(--heaven);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+.btn-secondary{
+    background: var(--secondary);
+    color: var(--heaven);
+}
+.btn-secondary:hover{
+    background: var(--heaven);
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+.section-heading{
+    font-family: "railway-Ebold";
+    text-align: center;
+    position: relative;
+    margin-bottom: 6rem;
+}
+.section-heading::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 30px;
+    background-image: url(../icons/hr.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: -40px;
+}
+/* ----------------------------for Small Display-------------------------------- */
+.main-wrapper{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.nav-back{
+    width: 100%;
+    height: 100%;
+    background: var(--light);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    z-index: 1;
+}
+.nav-trigger{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 15px;
+    display: none;
+}
+.site-content-wrapper{
+    width: 100%;
+    height: 100%;
+    background: var(--heaven);
+    position: absolute;
+    z-index: 2;
+    transition: all .3s ease;
+}
+.site-content-wrapper.scaled{
+   transform: scale(0.9) translate(60%);
+   border-radius: 3px;
+   box-shadow: 0 3px 10px 0 var(--secondary);
+}
+.site-content{
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+}
+.nav-back .mobile-logo{
+   padding: 1rem;
+}
+.mobile-nav{
+    padding: 1rem;
+ }
+.mobile-nav ul{
+   list-style-type: none;
+}
+.mobile-nav ul li{
+    margin-bottom: 1rem;
+ }
+ .mobile-nav ul li a{
+    text-decoration: none;
+    color: var(--secondary);
+    font-family: "railway-Ebold";
+ }
+ .mobile-nav ul li a:hover{
+    color: var(--primary);
+ }
+ .nav-back .cart{
+     margin-bottom: 2rem;
+ }
+ .nav-back .cart a{
+    text-decoration: none;
+    color: var(--secondary);
+    font-family: "railway-Ebold";
+}
+ .contact, .time{
+     padding: 1rem;
+     padding-left: 0;
+     display: flex;
+     align-items: center;
+
+ }
+ .contact img, .time img{
+     margin-right: 1rem;
+ }
+/* -------------------------Hambergger------------------------------- */
+.burger{
+    cursor: pointer;
+}
+.line{
+    
+    background-color: rgb(17, 12, 12);
+    height: 4px;
+    margin: 5px 3px;
+}
+.nav-trigger .burger .line:nth-child(1){
+   width: 43px;
+}
+.nav-trigger .burger .line:nth-child(2){
+    width: 33px;
+ }
+ .nav-trigger .burger .line:nth-child(3){
+    width: 13px;
+ }
+
+
+/* -------------------------------------------------------- */
+@media (min-width:576px){
+    .container{
+        max-width: 540px;
+    }
+}
+@media (min-width:768px){
+    .container{
+        max-width: 720px;
+    }
+}
+@media (min-width:992px){
+    .container{
+        max-width: 960px;
+    }
+}
+@media (min-width:1200px){
+    .container{
+        max-width: 1150px;
+    }
+}
+
+/* --------------------------------------------- */
+ header.topbar{
+     background: var(--secondary);
+     color: var(--pure);
+     font-family: "railway-Bitalic";
+     padding: .75rem 0;
+ }
+ header.topbar .auth > div a{
+    color: var(--pure);
+    text-decoration: none;
+}
+
+header.topbar .icon a{
+    /* padding: 0rem .5rem; */
+    margin-right: .5rem;
+}
+header.topbar .auth .divider{
+    padding: 0rem 1rem;
+}
+
+/* ----------------------------------------------------------------- */
+nav .top{
+    padding: 1.5rem 0;
+}
+nav .top .contact h5, nav .top .time h5{
+   font-family: "railway-Bitalic";
+   margin-bottom: .25rem;
+}
+nav .top .contact h6, nav .top .time h6{
+    font-family: "railway-Elight";
+    letter-spacing: .05rem;
+    font-size: .75rem;
+    color: var(--ternary);
+}
+nav .top .contact img, nav .top .time img{
+    padding-right: 1rem;
+}
+nav .navbar a{
+     text-decoration: none;
+     color: var(--secondary);
+     font-family: "railway-Ebold";
+     padding: 1rem 1.5rem;
+    transition: all .6s ease;
+     /* margin: 1rem 1.5rem; */
+}
+nav .navbar a.active{
+      background: var(--primary);
+      color: var(--pure);
+}
+nav .navbar a:hover{
+    background: var(--primary);
+    color: var(--pure);
+}
+header.hero{
+    height: 600px;
+    background-image: url(../img/hero.png);
+    background-position: 0% 0%; 
+    /*background-repeat: no-repeat; */
+    overflow: hidden;
+}
+header.hero .container{
+    position: relative;
+}
+header.hero .welcome{
+    margin-bottom: 1rem;
+}
+header.hero .welcome span{
+    font-family: "railway-Ebold";
+    color: var(--secondary);
+    margin-right: .75rem;
+}
+header.hero h1{ 
+    font-family: "railway-Ebold";
+    color: var(--secondary);   
+    font-size: 2.5rem;
+    margin-bottom: .75rem;
+ }
+ header.hero h1 span{
+     color: var(--primary);
+  }
+header.hero p{
+    font-family: "railway-black";
+    width: 50%;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+ }
+header.hero button:first-child{ 
+   margin-right: .90rem;
+}
+header.hero .hero-img{
+    position: absolute;
+    top: -40px;
+    right: 40px;
+}
+/* ----------------------------------------------------------------------- */
+section{
+    padding: 4rem 0;
+}
+section.top-product{
+    background: var(--light);
+}
+section.top-product .food-slider .food-card{
+    background: var(--heaven);
+    padding: 1.5rem 0;
+    border-radius: 4px;
+}
+section.top-product .food-slider .food-card .product-img img{
+    width: 80%;
+    height: 200px;
+    object-fit: contain;
+    padding-bottom: 1rem;
+}
+hr{
+    border: 1px solid var(--light);
+    opacity: .8;
+    margin: 1rem 0;
+}
+section.top-product .food-slider .food-card .stars img{
+    margin-right: .30rem;
+}
+section.top-product .food-slider .food-card button{
+    font-family: "railway-Ebold";
+    color: var(--secondary);
+    background: var(--heaven);
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+section.top-product .food-slider .food-card button:hover{
+    background: var(--primary);
+    color: var(--heaven);
+}
+section.top-product .food-slider .food-card button img{
+  background: var(--primary);
+  padding: .50rem;
+  height: 32px;
+  margin-right: .5rem;
+}
+/* ----------------------------Slide show ------------------------- */
+
+section.top-product .food-slider .food-card{
+    display: none;
+}
+.top-product .slider-btn{
+    width: 40px;
+    border: none;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all .5s ease;
+}
+section.top-product .slider {
+    position: relative;
+
+}
+.prev{
+    position: absolute;
+    top: 46%;
+    left: -3rem;
+    z-index: 1;
+}
+
+.next{
+    position: absolute;
+    top: 46%;
+    right: -3rem;
+    z-index: 1;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+
+section.about-meal img{
+      width: 85%;
+  }
+  .flex-1{
+      flex: 1;
+  }
+  section.about-meal h2{
+    font-size: 1.75rem;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+    line-height: 1.3;
+}
+section.about-meal p{
+    color: var(--secondary);
+    margin-bottom: 4rem;
+    line-height: 1.7;
+}
+/* ------------------------------------------------------------------------------ */
+section.big-deal {
+    background: linear-gradient(to right,
+        rgba(35,43,56,0.0),
+        rgba(35,43,56,0.9)   
+    ), url(../img/food-table.jpg);
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+section.big-deal .timer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -2rem;
+    margin-bottom: 2rem;
+}
+section.big-deal .timer div{
+    margin-right: 2rem;
+    background: var(--primary);
+    width: 150px;
+    height: 150px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+section.big-deal .timer div span:first-child{
+      font-family: "railway-Ebold";
+      font-size: 2.5rem;
+      color: var(--heaven);
+      margin-bottom: .2rem;
+}
+section.big-deal .timer div span:last-child{
+    font-family: "railway-Ebold";
+    color: var(--heaven);
+    margin-bottom: .2rem;
+}
+/* ------------------------------------------------------------------------ */
+section.latest-news{
+    background: var(--light);
+    position: relative;
+} 
+.latest-news .article-wrap .card img{
+    width: 100%;
+}
+section.latest-news .article-wrap{
+   display: flex;
+   margin-right: -2rem;   /* because its create a extra margin in last */
+}
+section.latest-news .article-wrap .card{
+    margin-right: 2rem;
+    background: var(--heaven);
+    border: 4px;
+ }
+ section.latest-news .article-wrap .card .card-content{
+     padding: 2rem;
+ }
+ section.latest-news .article-wrap .card .card-content .post-meta{
+     margin-bottom: 1rem;
+ }
+ section.latest-news .article-wrap .card .card-content p{
+    margin-top: 1rem;
+    line-height: 1.6;
+}
+.latest-news .btn-wrap{
+    margin-top: 2rem;
+}
+/* --------------------------------------------------------------------------- */
+section.subscribe{
+    background: var(--primary);
+}
+section.subscribe .container > div:first-child img{
+ width: 70%;
+}
+section.subscribe .container > div:first-child{
+    flex: 1;
+   }
+section.subscribe .container > div:last-child{
+    flex: 1;
+   }
+section.subscribe .container p{
+    margin: 1rem 0;
+   }
+section.subscribe .input-wrap{
+    background: var(--heaven);
+    display: flex;
+    padding: .3rem;
+    border-radius: 4px;
+}   
+section.subscribe .input-wrap input{
+    width: 100%;
+    border: none;
+    padding: 0 1rem;
+    font-size: 1rem;
+    outline: none;
+}  
+section.subscribe .input-wrap button{ 
+    padding: 0.8rem 2rem;
+    border: none;
+    background: var(--primary);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease;
+    color: #F0F0F0;
+}  
+section.subscribe .input-wrap button:hover{ 
+  background: var(--secondary);
+}
+/* -------------------------------------------------------------------------- */
+footer{
+    background: var(--footer);
+    padding: 4rem 0;
+}
+footer .container{
+    display: flex;
+    color: var(--pure);
+}
+footer .box{
+    flex: 1;
+    margin-right: 2rem;
+    text-align: center;
+}
+footer .box ul{
+    list-style: none;
+}
+footer .box ul li a{
+    color: var(--pure);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+footer .box ul li a:hover{
+    color: var(--primary);
+}
+footer .box h3{
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+footer .box ul li{
+    margin-bottom: .5rem;
+}
+footer .box:nth-child(3) > div {
+      display: flex;
+      justify-content: center;
+}
+footer .box:nth-child(3){
+    text-align: left;
+}
+footer .box:nth-child(3) h3{
+    text-align: center;
+}
+footer.copyright{
+    padding: 1rem 0;
+    background: var(--secondary);
+    color: var(--pure);
+    text-align: center;
+    font-size: .75rem;
+}
+
+/* ---------------------------------------------------------------------- */
+@media (max-width:992px){
+     .nav-trigger{
+         display: block;
+     }
+     header.topbar, nav{
+         display: none;
+     }
+     header.hero{
+         margin-top: -4rem;
+     }
+     header.hero .hero-img{
+         right: -130px;
+         top: 110px;
+     }
+     .latest-news .article-wrap{
+         flex-direction: column;
+     }
+     .latest-news .article-wrap .card{
+        margin-bottom: 1rem;
+    }
+ }
+ @media(max-width:768px){
+     .about-meal .about-wrap{
+         flex-direction: column;
+     }
+     .about-meal .about-wrap img{
+       width: 100%;
+       margin-bottom: 1rem; 
+    }
+    footer .container{
+        flex-direction: column;
+    }
+    footer .container .box{
+        text-align: left;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    footer .container .box:nth-child(3) h3{
+        text-align: left;
+    }
+    footer .container .box:nth-child(3) div{
+        display: block;
+    }
+   
+ }
+
+ @media(max-width:578px){
+    header.hero {
+        margin-top: -1rem;
+    }
+    header.hero .container{
+        padding-left: 1;
+    }
+    header.hero .hero-img{
+        right: -255px;
+        top: 150px;
+    }
+  
+    section.big-deal .timer > div{
+        margin-right: .50rem;
+    }
+    section.big-deal .timer{
+        margin-right: -.50rem;
+    }
+    .subscribe .container{
+        flex-direction: column;
+        padding: .50rem;
+    }
+
+ }
